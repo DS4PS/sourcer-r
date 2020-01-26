@@ -40,7 +40,7 @@ panel.smooth <- function (x, y, col = par("col"), bg = NA, pch = par("pch"),
 
 
 
-draw_ci <- function( b1, se )
+draw_ci <- function( b1, se, plot.title )
 {
 	upper.ci <- b1 + 1.96*se 
 	lower.ci <- b1 - 1.96*se
@@ -49,7 +49,7 @@ draw_ci <- function( b1, se )
 	      xlim=c(lower.ci-0.5,1), ylim=c(0,3),
 	      xlab="", ylab="", axes=F, bty="n",
 	      type="l", lwd=3, col="darkorange", 
-	      main="Model 1" )
+	      main=plot.title )
 	points( b1, 1, col="darkorange", pch=19, cex=3 )
 	text( b1, 1, b1, pos=3, col="gray30", cex=1.5, offset=1 )
 	text( c(lower.ci,upper.ci), 1, round(c(lower.ci,upper.ci),2), 
